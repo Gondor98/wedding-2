@@ -272,5 +272,18 @@
             return false;
         }
     </script>
+    <script>
+        // Personalize guest name from URL parameter
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var guestName = params.get('guest');
+            if (guestName) {
+                var el = document.querySelector('.inv-formal-guest-name');
+                if (el) el.textContent = guestName;
+                var rsvpName = document.getElementById('rsvp-name');
+                if (rsvpName) rsvpName.value = guestName;
+            }
+        })();
+    </script>
 </body>
 </html>
